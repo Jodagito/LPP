@@ -44,6 +44,42 @@
     )
   )
 
+;agregar un dato al arbol binario
+;crear un nuevo arbol a partir de uno existente
+
+(define (agregar-dato-ab x bst)
+  (cond
+    [(vacio-ab? bst) (nodo x null null)]
+    [(< x (raiz bst))
+     (nodo
+      (raiz bst)
+      (agregar-dato-ab x (izquierdo bst))
+      (derecho bst)
+      )
+     ]
+    [(> x (raiz bst))
+     (nodo
+      (raiz bst)
+      (izquierdo bst)
+      (agregar-dato-ab x (derecho bst))
+      )
+     ]
+    [else bst]
+    )
+)
+
+;agregar una lista de datos
+
+(define (agregar-lista-ab lista bst)
+  (if (vacio-ab? lista)
+      bst
+      (agregar-lista-ab (cdr lista) (agregar-dato-ab (car lista) bst))
+      )
+  )
+
+;realizar la sumatoria de elementos del arbol
+
+
 ;arbol de prueba expresion matemática
 (define m3 (nodo 4 null null))
 (define m2 (nodo 3 null null))
@@ -58,4 +94,17 @@
 (define n3 (nodo 20 n6 n5))
 (define n2 (nodo 17 null n3))
 (define n1 (nodo 12 n4 n2))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
