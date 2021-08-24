@@ -79,12 +79,6 @@
 
 ;realizar la sumatoria de elementos del arbol
 
-(define (sumatoria-elementos bst)
-  (if (null? bst)
-      0
-      (+ (raiz bst) (sumatoria-elementos (izquierdo bst)) (sumatoria-elementos(derecho bst)))
-      )
-  )
 
 ;arbol de prueba expresion matemática
 (define m3 (nodo 4 null null))
